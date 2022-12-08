@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1066021901062",
+    "project_id": "blip-b41f6",
+    "storage_bucket": "blip-b41f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066021901062:android:cb5b4743dad2f27b960487",
+        "android_client_info": {
+          "package_name": "com.example.blip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1066021901062-k3jlh1ubr2m59bcrftfosses1ube18bp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtH1qlC9J_C1ACfazuzKbZHEl-PGkBPLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1066021901062-k3jlh1ubr2m59bcrftfosses1ube18bp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
