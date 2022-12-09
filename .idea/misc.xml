@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/App_Dev/Android_Studio/Blip/app/src/main/res/layout/activity_all_chats.xml" value="0.11302083333333333" />
         <entry key="..\:/App_Dev/Android_Studio/Blip/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/App_Dev/Android_Studio/Blip/app/src/main/res/layout/activity_register.xml" value="0.264" />
-        <entry key="..\:/App_Dev/Android_Studio/Blip/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
+        <entry key="..\:/App_Dev/Android_Studio/Blip/app/src/main/res/layout/activity_sign_up.xml" value="0.72" />
       </map>
     </option>
   </component>

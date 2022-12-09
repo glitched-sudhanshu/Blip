@@ -38,7 +38,7 @@
                 tools:srcCompat="@mipmap/logo" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilUsername"
+                android:id="@+id/tilEmail"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -50,10 +50,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etUsername"
+                    android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Username" />
+                    android:hint="Email" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -67,7 +67,7 @@
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilUsername">
+                app:layout_constraintTop_toBottomOf="@+id/tilEmail">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPassword"
@@ -81,12 +81,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:layout_marginBottom="24dp"
                 android:text="Login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
+
+            <Button
+                android:id="@+id/btnGotoSignUp"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="24dp"
+                android:text="Sign Up"
+                android:textSize="16sp"
+                android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilPassword"
+                app:layout_constraintTop_toBottomOf="@+id/btnLoginUser"
                 app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

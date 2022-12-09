@@ -22,10 +22,10 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var mDbRef : DatabaseReference
 
 
-    override fun onStart() {
-        super.onStart()
-
-    }
+//    override fun onStart() {
+//        super.onStart()
+//
+//    }
 
 
 
@@ -36,6 +36,10 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(view)
 
         fbAuth = FirebaseAuth.getInstance()
+
+        mBinding.btnSignUpUser.setOnClickListener(this)
+        mBinding.etDateOfBirth.setOnClickListener(this)
+        mBinding.btnGotoLogin.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -45,11 +49,11 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
             {
                 R.id.btnSignUpUser -> {
                     val username = mBinding.etUsername.text.toString().trim()
-                    val email = mBinding.etUsername.text.toString().trim()
-                    val phoneNumber = mBinding.etUsername.text.toString().trim()
-                    val password = mBinding.etUsername.text.toString().trim()
+                    val email = mBinding.etEmail.text.toString().trim()
+                    val phoneNumber = mBinding.etPhoneNumber.text.toString().trim()
+                    val password = mBinding.etPassword.text.toString().trim()
                     val date = mBinding.etDateOfBirth.text.toString().trim()
-                    val confirmPassword = mBinding.etUsername.text.toString().trim()
+                    val confirmPassword = mBinding.etConfirmPassword.text.toString().trim()
                     when
                     {
                         TextUtils.isEmpty(username) -> Toast.makeText(this, "Enter valid username", Toast.LENGTH_SHORT).show()
@@ -60,13 +64,21 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                         TextUtils.isEmpty(confirmPassword) -> Toast.makeText(this, "Enter valid username", Toast.LENGTH_SHORT).show()
                         !TextUtils.equals(password, confirmPassword) -> Toast.makeText(this, "Password does not match", Toast.LENGTH_SHORT).show()
                         else -> {
+                            Toast.makeText(this, "check for else", Toast.LENGTH_SHORT).show()
                             signUpUser(email, username, phoneNumber, password, date)
                         }
                     }
+                    signUpUser(email, username, phoneNumber, password, date)
                 }
 
                 R.id.etDateOfBirth -> {
                     chooseDate()
+                }
+
+                R.id.btnGotoLogin -> {
+                    val intent = Intent(this, LoginActivity::class.java)
+                    finish()
+                    startActivity(intent)
                 }
             }
         }
@@ -77,16 +89,20 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
             .addOnCompleteListener(this) { task ->
                 if(task.isSuccessful)
                 {
+                    Toast.makeText(this, "check for successful", Toast.LENGTH_SHORT).show()
                     addUserToDatabase(username, email, fbAuth.currentUser?.uid!!, phoneNumber, password, date)
                     val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
                     finish()
                     startActivity(intent)
+                }else {
+
+                    Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
     private fun addUserToDatabase(username: String, email: String, uid: String, phoneNumber: String, password: String, dateOfBirth: String) {
-        mDbRef = FirebaseDatabase.getInstance().reference
+        mDbRef = FirebaseDatabase.getInstance().getReference()
         mDbRef.child(DATABASE_USER).child(uid).setValue(User(username, email, uid, phoneNumber, password, dateOfBirth))
     }
 
